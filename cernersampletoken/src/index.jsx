@@ -7,27 +7,36 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
+  Navigate
 } from 'react-router-dom';
 import Launch from './launch';
+import Patient from './patient';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
-  <Router>
-  <div className="App">
-  </div>
-  <div>
-	<a href="launch">If you are a provider, login here!</a>
-  </div>
-  <Routes>
-  <Route exact path='/App' element={< App />}></Route>
-  <Route exact path='/launch' element={< Launch />}></Route>
-  </Routes>
 
-  </Router>
+<div>
+<Router>
+     
+     {/* <div className="App">
+     </div> */}
+     {/* <div>
+     <a href="launch">If you are a provider, login here!</a>
+     </div> */}
+     
+     <Routes>
+     <Route index element={<Navigate replace to="launch" />} />
+     <Route path="launch" element={<Launch />} />
+     <Route exact path='/App' element={< App />}></Route>
+     {/* <Route exact path='/launch' element={< Launch />}></Route> */}
+     <Route exact path='/patient' element={< Patient />}></Route>
+</Routes>
+     
+     </Router>
+
+</div>
+
 
 );
 
